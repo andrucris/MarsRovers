@@ -20,51 +20,52 @@ public class Plateau {
         calculateFinishPosition(robot);
         this.robots.add(robot);
     }
-    public  Position calculateFinishPosition( Robot robot ) {
+
+    public Position calculateFinishPosition( Robot robot ) {
         int xInitial = robot.getPosition().getCoordinates().getX();
         int yInitial = robot.getPosition().getCoordinates().getY();
         String headingInitial = robot.getPosition().getCardinalCompassPoints().name();
-        System.out.println("initial "  + " y is " + yInitial + " x is " + xInitial + " heading  " + headingInitial);
+        System.out.println("initial " + " y is " + yInitial + " x is " + xInitial + " heading  " + headingInitial);
 
-        for(int i = 0;i<robot.getRoutes().length;i++){
+        for (int i = 0;i < robot.getRoutes().length;i++) {
 
-            if(Spin.M.name().equals(robot.getRoutes()[i])){
-                if(CardinalCompassPoints.W.name().equals(headingInitial)){
-                    if(xInitial>=1) {
+            if ( Spin.M.name().equals(robot.getRoutes()[i]) ) {
+                if ( CardinalCompassPoints.W.name().equals(headingInitial) ) {
+                    if ( xInitial >= 1 ) {
                         xInitial = xInitial - 1;
                     }
-                }else if(CardinalCompassPoints.E.name().equals(headingInitial)){
-                    if(xInitial +1<=upperRightCoordinates.getX()) {
-                        xInitial = xInitial +1;
+                } else if ( CardinalCompassPoints.E.name().equals(headingInitial) ) {
+                    if ( xInitial + 1 <= upperRightCoordinates.getX() ) {
+                        xInitial = xInitial + 1;
                     }
-                }else if(CardinalCompassPoints.N.name().equals(headingInitial)){
-                    if(yInitial +1<=upperRightCoordinates.getY()) {
-                        yInitial = yInitial +1;
+                } else if ( CardinalCompassPoints.N.name().equals(headingInitial) ) {
+                    if ( yInitial + 1 <= upperRightCoordinates.getY() ) {
+                        yInitial = yInitial + 1;
                     }
-                }else if(CardinalCompassPoints.S.name().equals(headingInitial)){
-                    if(yInitial >=1) {
-                        yInitial = yInitial -1;
+                } else if ( CardinalCompassPoints.S.name().equals(headingInitial) ) {
+                    if ( yInitial >= 1 ) {
+                        yInitial = yInitial - 1;
                     }
                 }
-            }else if(Spin.L.name().equals(robot.getRoutes()[i])){
-                if(CardinalCompassPoints.W.name().equals(headingInitial)) {
+            } else if ( Spin.L.name().equals(robot.getRoutes()[i]) ) {
+                if ( CardinalCompassPoints.W.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.S.name();
-                }else if(CardinalCompassPoints.S.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.S.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.E.name();
-                }else if(CardinalCompassPoints.E.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.E.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.N.name();
-                }else if(CardinalCompassPoints.N.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.N.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.W.name();
                 }
 
-            }else if(Spin.R.name().equals(robot.getRoutes()[i])){
-                if(CardinalCompassPoints.W.name().equals(headingInitial)) {
+            } else if ( Spin.R.name().equals(robot.getRoutes()[i]) ) {
+                if ( CardinalCompassPoints.W.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.N.name();
-                }else if(CardinalCompassPoints.N.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.N.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.E.name();
-                }else if(CardinalCompassPoints.E.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.E.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.S.name();
-                }else if(CardinalCompassPoints.S.name().equals(headingInitial)){
+                } else if ( CardinalCompassPoints.S.name().equals(headingInitial) ) {
                     headingInitial = CardinalCompassPoints.W.name();
                 }
 
@@ -83,6 +84,8 @@ public class Plateau {
         return position;
     }
 
+
+    ///GETTERS AND SETTERS
     public Coordinates getUpperRightCoordinates( ) {
         return upperRightCoordinates;
     }
